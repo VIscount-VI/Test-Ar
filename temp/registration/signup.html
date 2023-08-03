@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}
+    <h1>Ro`yxatdan o`tish</h1>
+{% endblock title %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'singup.css' %}">
+  <div class="forms">
+     <h2>Ro`yxatdan o`tish</h2>
+     <form method = "POST">
+        <div class="sizi">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit" class="btn btn-primary">Next</button>
+    </div>
+    </form>
+</div>
+{% endblock content %}
+    

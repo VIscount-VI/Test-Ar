@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'login.css' %}">
+</style>
+<div class="form" >
+     <h2>Saytga kirish</h2>
+     <form method = "POST">
+      
+        {% csrf_token %}
+        {{ form }}
+     
+      <button type="submit" class="btn btn-primary">Next</button>
+    </form>
+  </div>
+{% endblock content %}
+    
+
+
+

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block titel %}
+    Bosh Sahifa
+{% endblock titel %}
+    
+{% block content %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+        {%  if user.is_authenticated  %}
+             <div class="user">
+              <h1>Foydalanuvchi</h1>
+               <h1>  {{  user.username | title }} </h1>
+               <br>
+               <div class="box_a">
+              <a  class="dropdown-item" href="{% url 'password_change'  %}">Kalit so`zni almashtirish</a>
+              <a  class="dropdown-item" href="{%  url 'logout'  %}">Menu qaytish</a>
+              <a class="dropdown-item" href="{% url 'creat_list' %}">Article qo`shish</a>
+            </div>
+             </div>
+        {%  else  %}
+             
+        <nav class="navbar navbar-light bg-light">
+          <div class="container-fluid">
+            <a class="navbar-brand">Article</a>
+            <form class="d-flex">
+               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                    Menu
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                    <li><a class="dropdown-item" href="{%  url 'signup'  %}">Signup</a></li>
+                    <li><a class="dropdown-item" href="{% url 'list' %}">All Article</a></li>
+                  
+                  </ul>
+            </form>
+          </div>
+        </nav>
+
+
+        <div class="list">
+          <h2 class="text" >Look at the articles</h2>
+          <a class="article" href="{% url 'list' %}">Look</a>
+        </div>
+       {%  endif  %}    
+             
+
+
+             
+        
+{% endblock content %}
+        
